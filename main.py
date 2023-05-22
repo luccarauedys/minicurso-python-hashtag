@@ -34,3 +34,13 @@ tabela_faturamento = tabela_faturamento.sort_values(
 
 produto_maior_faturamento = tabela_faturamento.index[0]
 print(f"PRODUTO COM MAIOR FATURAMENTO: {produto_maior_faturamento}")
+
+# 3. Calcular a loja com maior faturamento
+
+tabela_lojas = tabela_de_vendas_completa.groupby("Loja").sum()
+tabela_lojas = tabela_lojas[["Faturamento"]]
+tabela_lojas = tabela_lojas.sort_values(
+    by="Faturamento", ascending=False)
+
+loja_maior_faturamento = tabela_lojas.index[0]
+print(f"LOJA COM MAIOR FATURAMENTO: {loja_maior_faturamento}")
